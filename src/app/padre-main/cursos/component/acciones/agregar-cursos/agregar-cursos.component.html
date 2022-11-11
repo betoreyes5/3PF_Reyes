@@ -1,0 +1,60 @@
+<h1 style="color: #AD1457; font-size: 22px;">Registrar Curso</h1>
+
+<div mat-dialog-content>
+
+    <form [formGroup]="formCurso">
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" >
+            <i class="fa fa-bandcamp" 
+            [class.green-icon]="this.formCurso.get('id')?.valid "
+            [class.red-icon]="this.formCurso.get('id')?.invalid && this.formCurso.get('id')?.touched" ></i>
+        </span>
+        <input type="text" maxlength="32" formControlName="id" class="form-control" placeholder="ID">
+    </div>
+
+        <div class="input-group mb-3">
+              <span class="input-group-text" >
+                  <i class="fa fa-bandcamp" 
+                  [class.green-icon]="this.formCurso.get('curso')?.valid "
+                  [class.red-icon]="this.formCurso.get('curso')?.invalid && this.formCurso.get('curso')?.touched" ></i>
+              </span>
+              <input type="text" maxlength="32" formControlName="curso" class="form-control" placeholder="curso">
+          </div>
+        
+          <div class="input-group mb-3">
+            <span class="input-group-text" >
+                <i class="fa fa-user"
+                [class.green-icon]="this.formCurso.get('profesor')?.valid "
+                [class.red-icon]="this.formCurso.get('profesor')?.invalid && this.formCurso.get('profesor')?.touched" ></i>
+            </span>
+            <input type="text" maxlength="32" formControlName="profesor" class="form-control" placeholder="profesor">
+          </div>
+        
+          <div class="input-group mb-3">
+            <span class="input-group-text" >
+                <i class="fa fa-money"
+                [class.green-icon]="this.formCurso.get('costo')?.valid "
+                [class.red-icon]="this.formCurso.get('costo')?.invalid && this.formCurso.get('costo')?.touched" ></i>
+            </span>
+            <input type="text" maxlength="32" formControlName="costo" class="form-control" placeholder="costo">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" >
+                <i class="fa fa-calendar-o"
+                [class.green-icon]="this.formCurso.get('fecha')?.valid "
+                [class.red-icon]="this.formCurso.get('fecha')?.invalid && this.formCurso.get('fecha')?.touched" ></i>
+            </span>
+            <input type="date" value="2022-10-27" formControlName="fecha" class="form-control" >
+          </div>
+           
+        </form>  
+
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-button mat-dialog-close mat-raise-button-color="warn" (click)="CancelarCurso()">Cancelar</button>
+    <button mat-button mat-raise-button-color="primary" [disabled]="this.formCurso.invalid" (click)="guardarCurso()">Guardar</button>
+</div>
+

@@ -1,0 +1,96 @@
+
+<h2 style=" text-align: center; color: #AD1458;">Comision 32320- ANGULAR</h2>
+<div class="login-wrap">
+
+	<div class="login-html">
+
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"> Entrar</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"> Registrar</label>
+		
+        <div class="login-form">
+            
+			<div class="sign-in-htm">
+
+				<form [formGroup]="formSignIn">
+
+					<div class="input-group mb-3">
+						<span class="input-group-text" >
+							<i class="fa fa-user"
+							[class.green-icon]="this.formSignIn.get('user')?.valid "
+							[class.red-icon]="this.formSignIn.get('user')?.invalid && this.formSignIn.get('user')?.touched" ></i>
+						</span>
+						<input type="text" maxlength="32" formControlName="user" class="form-control" placeholder="Usuario">
+					  </div>
+					
+					  <div class="input-group mb-3">
+						<span class="input-group-text" >
+						  <i class="fa fa-shield"
+						  [class.green-icon]="this.formSignIn.get('password')?.valid "
+						  [class.red-icon]="this.formSignIn.get('password')?.invalid && this.formSignIn.get('password')?.touched" ></i>
+						</span>
+						<input type="password" maxlength="10" formControlName="password"  class="form-control" placeholder="Contrasenia">
+					  </div>  
+
+				</form>
+					
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<input class="btn btn-outline-light" type="submit" value="Entrar" (click)="validarSesion()" >
+				</div>
+               <br>
+								
+				<div class="d-flex justify-content-center" *ngIf="loading">					
+					<div class="spinner-grow ml-auto text-light" role="status" aria-hidden="true"></div>
+				  </div>
+				
+			</div>
+
+			<div class="sign-up-htm">
+
+				<form [formGroup]="formSignUp">
+
+							
+				  <div class="input-group mb-3">
+					<span class="input-group-text" >
+						<i class="fa fa-user"
+						[class.green-icon]="this.formSignUp.get('user')?.valid "
+						[class.red-icon]="this.formSignUp.get('user')?.invalid && this.formSignUp.get('user')?.touched" ></i>
+					</span>
+					<input type="text" maxlength="32" formControlName="user" class="form-control" placeholder="Usuario">
+				  </div>
+
+				  <div class="input-group mb-3">
+					<span class="input-group-text" >
+						<i class="fa fa-envelope" 
+						[class.green-icon]="this.formSignUp.get('email')?.valid "
+						[class.red-icon]="this.formSignUp.get('email')?.invalid && this.formSignUp.get('email')?.touched" ></i>
+					</span>
+					<input type="text" maxlength="32" formControlName="email" class="form-control" placeholder="E-mail">
+				</div>
+				
+				  <div class="input-group mb-3">
+					<span class="input-group-text" >
+					  <i class="fa fa-shield"
+					  [class.green-icon]="this.formSignUp.get('password')?.valid "
+					  [class.red-icon]="this.formSignUp.get('password')?.invalid && this.formSignUp.get('password')?.touched" ></i>
+					</span>
+					<input type="password" maxlength="10" formControlName="password"  class="form-control" placeholder="password">
+				  </div> 
+				  
+				  <div class="input-group mb-3">
+					<mat-slide-toggle  formControlName="type" >Eres Administrador?</mat-slide-toggle>
+				</div> 
+				   
+				</form>
+				
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<input class="btn btn-outline-light" type="submit" value="Registrar" (click)="guardarUsuario()" >
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

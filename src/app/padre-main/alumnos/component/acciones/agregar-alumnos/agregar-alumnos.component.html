@@ -1,0 +1,42 @@
+<h1 style="color: #AD1457; font-size: 22px;">Registrar Alumno</h1>
+
+<div mat-dialog-content>
+
+  <form [formGroup]="formAlumno">
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" >
+          <i class="fa fa-envelope" 
+          [class.green-icon]="this.formAlumno.get('correo')?.valid "
+          [class.red-icon]="this.formAlumno.get('correo')?.invalid && this.formAlumno.get('correo')?.touched" ></i>
+      </span>
+      <input type="text" maxlength="32" formControlName="correo" class="form-control" placeholder="E-mail">
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" >
+        <i class="fa fa-user"
+        [class.green-icon]="this.formAlumno.get('nombre')?.valid "
+        [class.red-icon]="this.formAlumno.get('nombre')?.invalid && this.formAlumno.get('nombre')?.touched" ></i>
+    </span>
+    <input type="text" maxlength="32" formControlName="nombre" class="form-control" placeholder="Nombre">
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" >
+      <i class="fa fa-shield"
+      [class.green-icon]="this.formAlumno.get('password')?.valid "
+      [class.red-icon]="this.formAlumno.get('password')?.invalid && this.formAlumno.get('password')?.touched" ></i>
+    </span>
+    <input type="password" maxlength="10" formControlName="password"  class="form-control" placeholder="Password">
+  </div>  
+   
+</form>
+  
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-button mat-dialog-close mat-raise-button-color="warn" (click)="CancelarAlumno()">Cancelar</button>
+  <button mat-button mat-raise-button-color="primary" [disabled]="this.formAlumno.invalid" (click)="guardarAlumno()">Guardar</button>
+</div>
+
